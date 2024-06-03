@@ -70,13 +70,13 @@ router.put('/:transaction_id', async (req, res) => {
 
 // Delete a Vendor transaction
 router.delete('/:transaction_id', async (req, res) => {
-try {
-    const savedPayment = await VendorPayment.deleteOne({transaction_id:req.params.transaction_id})
-    console.log(savedPayment);
-    res.json({ message: 'Vendor Payment deleted successfully' });
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
+  try {
+      const savedPayment = await VendorPayment.deleteOne({transaction_id:req.params.transaction_id})
+      console.log(savedPayment);
+      res.json({ message: 'Vendor Payment deleted successfully' });
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
 });
 
 module.exports = router;
